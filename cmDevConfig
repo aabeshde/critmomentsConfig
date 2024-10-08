@@ -125,7 +125,7 @@
           },
           "idealDeliveryConditions": {
             "condition": "screen_brightness > 0.01 && device_orientation != 'face_up' && device_orientation != 'face_down'",
-            "maxWaitTimeSeconds": 1300000
+            "maxWaitTimeSeconds": 1300010
           }
         },
         "generalSecondChurnNotification": {
