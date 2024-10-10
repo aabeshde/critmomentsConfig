@@ -1,150 +1,120 @@
 {
-  "configVersion": "v1",
-  "appId": "Flora.FloraFirebase",
-  "triggers": {
+    "configVersion": "v1",
+    "appId": "Flora.FloraFirebase",
+    "triggers": {
       "namedTriggers": {
-          "usedKeyFeatureReviewTrigger": {
-              "eventName": "onboarding_rewards",
-              "actionName": "smartReviewAction"
-          }
+        "usedKeyFeatureReviewTrigger": {
+          "eventName": "onboarding_rewards",
+          "actionName": "smartReviewAction"
+        }
       }
-  },
-  "actions": {
+    },
+    "actions": {
       "namedActions": {
-          "smartReviewAction": {
-              "actionType": "review_prompt",
-              "actionData": {},
-              "dev_comment": "Some best practices for times to avoid",
-              "condition": "eventCount('system_app_review_requested') == 0 && !device_low_power_mode && has_active_network && !low_data_mode && device_battery_level > 0.2 && !versionLessThan(os_version, '18.0') && locale_language_code == 'en'"
-          }
+        "smartReviewAction": {
+          "actionType": "review_prompt",
+          "actionData": {},
+          "dev_comment": "Some best practices for times to avoid",
+          "condition": "eventCount('system_app_review_requested') == 0 && !device_low_power_mode && has_active_network && !low_data_mode && device_battery_level > 0.2 && !versionLessThan(os_version, '18.0') && locale_language_code == 'en'"
+        }
       }
-  },
-  "notifications": {
+    },
+    "notifications": {
       "onboardingReminder": {
-          "title": "Your 🪴: 'Am I a joke to you?'",
-          "body": "Your green thumbs are no joke. Tap to setup the perfect home for your plants, it only takes a minute 💚",
-          "cancelationEvents": ["homescreen_view"],
-          "deliveryTimeOfDayStart": "10:00",
-          "deliveryTimeOfDayEnd": "23:00",
-          "scheduleCondition": "app_install_date > date('2024-10-09')",
-          "dev_note": "First onboarding reminder if ignored for 2 minutes. The ideal delivery time is when the user is holding their device (not flat), and its screen is on.",
-          "deliveryTime": {
-              "eventName": "app_entered_background",
-              "eventInstance": "latest",
-              "eventOffsetSeconds": 10
-          },
-          "idealDeliveryConditions": {
-              "condition": "screen_brightness > 0.01 && device_orientation != 'face_up' && device_orientation != 'face_down'",
-              "maxWaitTimeSeconds": 12
-          }
+        "title": "Your 🪴: 'Am I a joke to you?'",
+        "body": "Your green thumbs are no joke. Tap to setup the perfect home for your plants, it only takes a minute 💚",
+        "cancelationEvents": ["homescreen_view"],
+        "deliveryTimeOfDayStart": "10:00",
+        "deliveryTimeOfDayEnd": "23:00",
+        "scheduleCondition": "app_install_date > date('2024-10-11')",
+        "dev_note": "First onboarding reminder if ignored for 2 minutes. The ideal delivery time is when the user is holding their device (not flat), and its screen is on.",
+        "deliveryTime": {
+          "eventName": "app_entered_background",
+          "eventInstance": "latest-once",
+          "eventOffsetSeconds": 300
+        }
       },
       "secondOnboardingReminder": {
-          "title": "🎁🔓 Use Flora for Free",
-          "body": "Tap to unlock Flora and start growing with more than 350,000 other plant buds. Your plants beleaf in you 🐨",
-          "cancelationEvents": ["homescreen_view"],
-          "deliveryTimeOfDayStart": "09:00",
-          "deliveryTimeOfDayEnd": "20:00",
-          "scheduleCondition": "app_install_date > date('2024-10-09')",
-          "dev_note": "Second onboarding reminder if ignored for 10 minutes. The ideal delivery time is when the user is holding their device (not flat), and it's screen is on.",
-          "deliveryTime": {
-              "eventName": "app_entered_background",
-              "eventInstance": "latest",
-              "eventOffsetSeconds": 600
-          },
-          "idealDeliveryConditions": {
-              "condition": "screen_brightness > 0.01 && device_orientation != 'face_up' && device_orientation != 'face_down'",
-              "maxWaitTimeSeconds": 660
-          }
+        "title": "🎁🔓 Use Flora for Free",
+        "body": "Tap to unlock Flora and start growing with more than 350,000 other plant buds. Your plants beleaf in you 🐨",
+        "cancelationEvents": ["homescreen_view"],
+        "deliveryTimeOfDayStart": "09:00",
+        "deliveryTimeOfDayEnd": "20:00",
+        "scheduleCondition": "app_install_date > date('2024-10-11')",
+        "dev_note": "Second onboarding reminder if ignored for 10 minutes. The ideal delivery time is when the user is holding their device (not flat), and it's screen is on.",
+        "deliveryTime": {
+          "eventName": "app_entered_background",
+          "eventInstance": "latest-once",
+          "eventOffsetSeconds": 600
+        }
       },
       "firstPlantReminder": {
-          "title": "Your plants are giving 💦",
-          "body": "That doesn't even make sense. But they do want to get watered. Tap to add your first plant in seconds 🐨",
-          "cancelationEvents": ["plant_added"],
-          "deliveryTimeOfDayStart": "09:00",
-          "deliveryTimeOfDayEnd": "20:00",
-          "scheduleCondition": "app_install_date > date('2024-10-09')",
-          "dev_note": "Delivered 30 minutes after not adding their first plant. The ideal delivery time is when the user is holding their device (not flat), and it's screen is on.",
-          "deliveryTime": {
-              "eventName": "homescreen_view",
-              "eventInstance": "latest-once",
-              "eventOffsetSeconds": 1800
-          },
-          "idealDeliveryConditions": {
-              "condition": "screen_brightness > 0.01 && device_orientation != 'face_up' && device_orientation != 'face_down'",
-              "maxWaitTimeSeconds": 2000
-          }
+        "title": "Your plants are giving 💦",
+        "body": "That doesn't even make sense. But they do want to get watered. Tap to add your first plant in seconds 🐨",
+        "cancelationEvents": ["plant_added"],
+        "deliveryTimeOfDayStart": "09:00",
+        "deliveryTimeOfDayEnd": "20:00",
+        "scheduleCondition": "app_install_date > date('2024-10-11')",
+        "dev_note": "Delivered 30 minutes after not adding their first plant. The ideal delivery time is when the user is holding their device (not flat), and it's screen is on.",
+        "deliveryTime": {
+          "eventName": "homescreen_view",
+          "eventInstance": "latest-once",
+          "eventOffsetSeconds": 1800
+        }
       },
       "secondPlantReminder": {
-          "title": "🪴 You're so close!",
-          "body": "Tap now to turn your thumbs green. It only takes a minute to add a plant!",
-          "cancelationEvents": ["plant_added"],
-          "deliveryTimeOfDayStart": "10:00",
-          "deliveryTimeOfDayEnd": "20:00",
-          "scheduleCondition": "app_install_date > date('2024-10-09')",
-          "dev_note": "86400s is 24h. The ideal delivery time is when the user is holding their device (not flat), and it's screen is on.",
-          "deliveryTime": {
-              "eventName": "homescreen_view",
-              "eventInstance": "latest-once",
-              "eventOffsetSeconds": 86400
-          },
-          "idealDeliveryConditions": {
-              "condition": "screen_brightness > 0.01 && device_orientation != 'face_up' && device_orientation != 'face_down'",
-              "maxWaitTimeSeconds": 87000
-          }
+        "title": "🪴 You're so close!",
+        "body": "Tap now to turn your thumbs green. It only takes a minute to add a plant!",
+        "cancelationEvents": ["plant_added"],
+        "deliveryTimeOfDayStart": "10:00",
+        "deliveryTimeOfDayEnd": "20:00",
+        "scheduleCondition": "app_install_date > date('2024-10-11')",
+        "dev_note": "86400s is 24h. The ideal delivery time is when the user is holding their device (not flat), and it's screen is on.",
+        "deliveryTime": {
+          "eventName": "homescreen_view",
+          "eventInstance": "latest-once",
+          "eventOffsetSeconds": 86400
+        },
+        "idealDeliveryConditions": {
+          "condition": "screen_brightness > 0.01 && device_orientation != 'face_up' && device_orientation != 'face_down'",
+          "maxWaitTimeSeconds": 43200
+        }
       },
       "onboardingChurnNotification": {
-          "title": "👀 A Green Surprise?",
-          "body": "We've got some plants waiting for you...",
-          "cancelationEvents": ["app_entered_foreground"],
-          "deliveryTimeOfDayStart": "10:00",
-          "deliveryTimeOfDayEnd": "20:00",
-          "scheduleCondition": "app_install_date > date('2024-10-09')",
-          "dev_note": "1,728,000 is 20 days. The ideal delivery time is when the user is holding their device (not flat), and it's screen is on.",
-          "deliveryTime": {
-              "eventName": "app_entered_background",
-              "eventInstance": "latest-once",
-              "eventOffsetSeconds": 1728000
-          },
-          "idealDeliveryConditions": {
-              "condition": "screen_brightness > 0.01 && device_orientation != 'face_up' && device_orientation != 'face_down'",
-              "maxWaitTimeSeconds": 1730000
-          }
+        "title": "👀 A Green Surprise?",
+        "body": "We've got some plants waiting for you...",
+        "cancelationEvents": ["app_start"],
+        "deliveryTimeOfDayStart": "10:00",
+        "deliveryTimeOfDayEnd": "20:00",
+        "scheduleCondition": "app_install_date > date('2024-10-11')",
+        "dev_note": "2,160,000 is 25 days. The ideal delivery time is when the user is holding their device (not flat), and it's screen is on.",
+        "deliveryTime": {
+          "eventName": "app_entered_background",
+          "eventInstance": "latest-once",
+          "eventOffsetSeconds": 2160000
+        },
+        "idealDeliveryConditions": {
+          "condition": "screen_brightness > 0.01 && device_orientation != 'face_up' && device_orientation != 'face_down'",
+          "maxWaitTimeSeconds": 43200
+        }
       },
       "generalChurnNotification": {
-          "title": "Plants: 'New phone, who dis?' 😏📱",
-          "body": "It's been so long, your plants forgot your name. Reintroduce yourself, they're really quite friendly 🤝",
-          "cancelationEvents": ["app_entered_foreground"],
-          "deliveryTimeOfDayStart": "09:00",
-          "deliveryTimeOfDayEnd": "20:00",
-          "scheduleCondition": "app_install_date > date('2024-10-09')",
-          "dev_note": "1296000s is 15 days. The ideal delivery time is when the user is holding their device (not flat), and it's screen is on.",
-          "deliveryTime": {
-              "eventName": "app_entered_background",
-              "eventInstance": "latest",
-              "eventOffsetSeconds": 1296000
-          },
-          "idealDeliveryConditions": {
-              "condition": "screen_brightness > 0.01 && device_orientation != 'face_up' && device_orientation != 'face_down'",
-              "maxWaitTimeSeconds": 1300010
-          }
-      },
-      "generalSecondChurnNotification": {
-          "title": "Ghosting plants now? Bruh 🐨",
-          "body": "Left on read by a human? Tragic. Left on read by a plant? Legendary. Check back into Flora and Un-ghost your plant buds 👻",
-          "cancelationEvents": ["app_entered_foreground"],
-          "deliveryTimeOfDayStart": "10:00",
-          "deliveryTimeOfDayEnd": "20:00",
-          "scheduleCondition": "app_install_date > date('2024-10-09')",
-          "dev_note": "1728000s is 20 days. The ideal delivery time is when the user is holding their device (not flat), and it's screen is on.",
-          "deliveryTime": {
-              "eventName": "app_entered_background",
-              "eventInstance": "latest",
-              "eventOffsetSeconds": 1728000
-          },
-          "idealDeliveryConditions": {
-              "condition": "screen_brightness > 0.01 && device_orientation != 'face_up' && device_orientation != 'face_down'",
-              "maxWaitTimeSeconds": 1730000
-          }
+        "title": "Plants: 'New phone, who dis?' 😏📱",
+        "body": "It's been so long, your plants forgot your name. Reintroduce yourself, they're really quite friendly 🤝",
+        "cancelationEvents": ["app_start"],
+        "deliveryTimeOfDayStart": "09:00",
+        "deliveryTimeOfDayEnd": "20:00",
+        "scheduleCondition": "app_install_date > date('2024-10-11')",
+        "dev_note": "1728000s is 20 days. The ideal delivery time is when the user is holding their device (not flat), and it's screen is on.",
+        "deliveryTime": {
+          "eventName": "app_entered_background",
+          "eventInstance": "latest",
+          "eventOffsetSeconds": 1728000
+        },
+        "idealDeliveryConditions": {
+          "condition": "screen_brightness > 0.01 && device_orientation != 'face_up' && device_orientation != 'face_down'",
+          "maxWaitTimeSeconds": 43200
+        }
       }
+    }
   }
-}
