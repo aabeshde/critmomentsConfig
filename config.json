@@ -26,12 +26,12 @@
         "cancelationEvents": ["homescreen_view"],
         "deliveryTimeOfDayStart": "10:00",
         "deliveryTimeOfDayEnd": "23:00",
-        "scheduleCondition": "app_install_date > date('2024-10-11')",
-        "dev_note": "First onboarding reminder if ignored for 2 minutes. The ideal delivery time is when the user is holding their device (not flat), and its screen is on.",
+        "scheduleCondition": "app_install_date > date('2024-10-15')",
+        "dev_note": "First onboarding reminder if ignored for 10 minutes.",
         "deliveryTime": {
           "eventName": "app_entered_background",
           "eventInstance": "latest-once",
-          "eventOffsetSeconds": 300
+          "eventOffsetSeconds": 600
         }
       },
       "secondOnboardingReminder": {
@@ -40,12 +40,12 @@
         "cancelationEvents": ["homescreen_view"],
         "deliveryTimeOfDayStart": "09:00",
         "deliveryTimeOfDayEnd": "20:00",
-        "scheduleCondition": "app_install_date > date('2024-10-11')",
-        "dev_note": "Second onboarding reminder if ignored for 10 minutes. The ideal delivery time is when the user is holding their device (not flat), and it's screen is on.",
+        "scheduleCondition": "app_install_date > date('2024-10-15')",
+        "dev_note": "Second onboarding reminder if ignored for 18h.",
         "deliveryTime": {
           "eventName": "app_entered_background",
           "eventInstance": "latest-once",
-          "eventOffsetSeconds": 600
+          "eventOffsetSeconds": 64800
         }
       },
       "firstPlantReminder": {
@@ -54,12 +54,12 @@
         "cancelationEvents": ["plant_added"],
         "deliveryTimeOfDayStart": "09:00",
         "deliveryTimeOfDayEnd": "20:00",
-        "scheduleCondition": "app_install_date > date('2024-10-11')",
-        "dev_note": "Delivered 30 minutes after not adding their first plant. The ideal delivery time is when the user is holding their device (not flat), and it's screen is on.",
+        "scheduleCondition": "app_install_date > date('2024-10-15')",
+        "dev_note": "Delivered 1 hr after not adding their first plant.",
         "deliveryTime": {
           "eventName": "homescreen_view",
           "eventInstance": "latest-once",
-          "eventOffsetSeconds": 1800
+          "eventOffsetSeconds": 3600
         }
       },
       "secondPlantReminder": {
@@ -68,7 +68,7 @@
         "cancelationEvents": ["plant_added"],
         "deliveryTimeOfDayStart": "10:00",
         "deliveryTimeOfDayEnd": "20:00",
-        "scheduleCondition": "app_install_date > date('2024-10-11')",
+        "scheduleCondition": "app_install_date > date('2024-10-15')",
         "dev_note": "86400s is 24h. The ideal delivery time is when the user is holding their device (not flat), and it's screen is on.",
         "deliveryTime": {
           "eventName": "homescreen_view",
@@ -86,7 +86,7 @@
         "cancelationEvents": ["app_start"],
         "deliveryTimeOfDayStart": "10:00",
         "deliveryTimeOfDayEnd": "20:00",
-        "scheduleCondition": "app_install_date > date('2024-10-11')",
+        "scheduleCondition": "app_install_date > date('2024-10-15')",
         "dev_note": "2,160,000 is 25 days. The ideal delivery time is when the user is holding their device (not flat), and it's screen is on.",
         "deliveryTime": {
           "eventName": "app_entered_background",
@@ -95,7 +95,7 @@
         },
         "idealDeliveryConditions": {
           "condition": "screen_brightness > 0.01 && device_orientation != 'face_up' && device_orientation != 'face_down'",
-          "maxWaitTimeSeconds": 43200
+          "maxWaitTimeSeconds": 172800
         }
       },
       "generalChurnNotification": {
@@ -104,7 +104,7 @@
         "cancelationEvents": ["app_start"],
         "deliveryTimeOfDayStart": "09:00",
         "deliveryTimeOfDayEnd": "20:00",
-        "scheduleCondition": "app_install_date > date('2024-10-11')",
+        "scheduleCondition": "app_install_date > date('2024-10-15')",
         "dev_note": "1728000s is 20 days. The ideal delivery time is when the user is holding their device (not flat), and it's screen is on.",
         "deliveryTime": {
           "eventName": "app_entered_background",
@@ -113,7 +113,7 @@
         },
         "idealDeliveryConditions": {
           "condition": "screen_brightness > 0.01 && device_orientation != 'face_up' && device_orientation != 'face_down'",
-          "maxWaitTimeSeconds": 43200
+          "maxWaitTimeSeconds": 172800
         }
       }
     }
